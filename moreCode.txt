@@ -1,0 +1,186 @@
+package coreJava;
+
+public class SumsPairs {
+
+	public static void main(String[] args) {
+
+		int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+		for (int i=0; i<numbers.length; i++)
+		{
+			for (int j=i+1; j<numbers.length; j++)
+				
+			{
+
+				if (numbers[i] == 9 || numbers[i] + numbers[j] == 9) {
+
+					System.out.println("The numbers that sum up to 9 are: " +numbers[i] + " " + numbers[j]);
+				}
+			}
+		}
+
+	}
+
+}
+
+
+
+
+
+package coreJava;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+
+public class UniqueValuesInArray {
+
+	public static void main(String[] args) {
+		
+		String [] countries = {"Ghana", "Guinea", "Mali", "Ghana", "Togo", "Nigeria", "Mali", "Tanzania"};
+		
+		//ArrayList<String> countryList =new ArrayList<String>(countries);
+		//Converting the array to array list
+		 List<String> countrylist = Arrays.asList(countries);
+		 
+		 //Create Hashset and parse Hashset constructor
+		 HashSet <String> hs = new HashSet<String>(countrylist);
+		 
+		 System.out.println("The unique values are " + hs);
+		 
+	System.out.println("----------------------------------------------------------------------------------------------");	
+	//Start with an ordinary array
+	String[] names = {"Rahul", "Utkarsh", "Rahul", "Shubham", "Neelam", "Shubham"};
+//Create an array list or list
+List<String> al = new ArrayList<String>();
+
+// adding elements of array to arrayList.
+Collections.addAll(al, names);
+ //Create a Hashset and parse a hashset constructor
+HashSet <String> set = new HashSet <String>(al);
+
+System.out.println(set);
+	
+	}
+
+}
+
+
+
+package framesDemo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class FramesDemo {
+	
+	public static void main(String[] args) {
+	System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\exeDrivers.exe\\chromedriver-win64\\chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.get("https://jqueryui.com/droppable/");	
+	WebElement el = driver.findElement(By.xpath("//*[@id='content']/iframe"));
+	driver.switchTo().frame(el);
+	
+	//this gives the total number of frames in the web page
+	int count = driver.findElements(By.tagName("iframe")).size();
+	System.out.println(count);
+	Actions act = new Actions(driver);
+	WebElement source = driver.findElement(By.id("draggable"));
+	WebElement target = driver.findElement(By.id("droppable"));
+	act.dragAndDrop(source, target).build().perform();
+	
+	//switches back to the default page
+	driver.switchTo().defaultContent();
+	
+}
+}
+
+
+
+
+package practice;
+
+import java.util.ArrayList;
+
+public class ArratListTest {
+
+	public static void main(String[] args) {
+		
+		
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Abinav");
+		names.add("Ella");
+		names.add("Abibata");
+		names.add("Akon");
+		names.add("Sasta");
+		names.add("Adam");
+		
+		System.out.println(names);
+		//String name = " ";
+	System.out.println("-------After iteration---------");	
+		ArrayList<String> myList = new ArrayList<String>();	
+		int count=0;
+		
+		for(int i=0; i<names.size(); i++) {
+			
+			String name = names.get(i);
+			
+			if(name.startsWith("A"))
+			{
+				count++;
+			}
+		}
+				
+		System.out.println(count);
+		
+		for(String name : names)
+		{
+			myList.add(name);
+		}
+		
+		System.out.print(myList+"  ");
+		
+		
+	}
+
+}
+
+
+package practice;
+
+	public class DistinctNums {	
+	
+	
+		   public static void main (String[] args)
+		   
+		   {
+		      int arr[] = {1, 5, 9, 1, 4, 9, 6, 5, 9, 7};
+		     // int n = arr.length;
+		      int i, j;
+		     System.out.print("The array is: ");
+		     for (i = 0; i<arr.length; i++)
+		     System.out.print(arr[i] + " ");
+		     System.out.print("\nThe distinct elements of above array are: ");
+		      for (i=0; i<arr.length; i++) {
+		         for (j=0; j<i; j++)
+		    	  
+		    		  if (arr[i] == arr[j])
+				            break;
+				         if (i == j)
+				         System.out.print( arr[i] + ", ");
+		    	  	  
+		        
+		      }
+		      
+		     
+		   }
+		   
+		}
+
